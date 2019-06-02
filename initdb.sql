@@ -31,9 +31,9 @@ CREATE TABLE IF NOT EXISTS `relevancia2` (
 DEFAULT CHARACTER SET = utf8;
 
 
-LOAD DATA INFILE "/home/sigkill/Desktop/users-data/listarelevancia1.txt" INTO TABLE relevancia1 COLUMNS TERMINATED BY '\n' LINES TERMINATED BY '\n' (id);
+LOAD DATA INFILE "/home/sigkill/Desktop/users-data/lista_relevancia_1.txt" INTO TABLE relevancia1 COLUMNS TERMINATED BY '\n' LINES TERMINATED BY '\n' (id);
 
-LOAD DATA INFILE "/home/sigkill/Desktop/users-data/listarelevancia2.txt" INTO TABLE relevancia2 COLUMNS TERMINATED BY '\n' LINES TERMINATED BY '\n' (id);
+LOAD DATA INFILE "/home/sigkill/Desktop/users-data/lista_relevancia_2.txt" INTO TABLE relevancia2 COLUMNS TERMINATED BY '\n' LINES TERMINATED BY '\n' (id);
 
 -- flush privileges;
 -- grant all privileges on *.* to 'root'@'%' with grant option;
