@@ -3,11 +3,11 @@
 $settings = array(
   'driver'    => 'mysql',
   'host'      => 'localhost',
-  'database'  => 'gritarra',
+  'database'  => 'piquepei',
   'username'  => 'root',
   'password'  => '',
-  'charset'   => 'utf8',
-  'collation' => 'utf8_unicode_ci',
+  'charset'   => 'latin1',
+  'collation' => 'latin1_general_ci',
   'prefix'    => ''
 );
 

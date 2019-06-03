@@ -2,33 +2,16 @@
 
 # === api
 # ==================================================
-$app->get('/api/v1/brands', function() use ($app) {
 
-  $results = Brands::all();
-  return helpers::jsonResponse(false, 'results', $results );
-
-});
-
-$app->get('/api/v1/series', function() use ($app) {
-
-  $results = Series::all();
-  return helpers::jsonResponse(false, 'results', $results );
-
-});
-
-$app->get('/api/v1/guitars', function() use ($app) {
+$app->get('/api/users', function() use ($app) {
 
   $results = [];
-  $description = $app->request->get('description');
-  if ( $description ) {
-    $results = Guitars::with('Brand')
-                      ->with('Serie')
-                      ->where('description','LIKE',"%{$description}%")
+  $name = $app->request->get('name');
+  if ( $name ) {
+    $results = Users::where('name','LIKE',"%{$name}%")
                       ->get();
   } else {
-    $results = Guitars::with('Brand')
-                      ->with('Serie')
-                      ->get();
+    $results = Users::all();
   }
   $message = $results->count() . ' results';
   return helpers::jsonResponse(false, $message, $results );

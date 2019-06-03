@@ -1,24 +1,16 @@
 <?php
 
-class Brands extends Illuminate\Database\Eloquent\Model
+class Relevancia1 extends Illuminate\Database\Eloquent\Model
 {
-  protected $table = 'brands';
+  protected $table = 'relevancia1';
 }
 
-class Series extends Illuminate\Database\Eloquent\Model
+class Relevancia2 extends Illuminate\Database\Eloquent\Model
 {
-  protected $table = 'series';
+  protected $table = 'relevancia2';
 }
 
-class Guitars extends Illuminate\Database\Eloquent\Model
+class Users extends Illuminate\Database\Eloquent\Model
 {
-  protected $table = 'guitars';
-
-  public function Brand() {
-    return $this->hasOne('Brands','id', 'fk_brands');
-  }
-
-  public function Serie() {
-    return $this->hasOne('Series','id', 'fk_series');
-  }
+  protected $table = 'users';
 }
