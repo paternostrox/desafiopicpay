@@ -9,3 +9,8 @@ $ php composer.phar install
 
 2) Copie o projeto para o diretório padrão do xampp:
 $ sudo cp -a path/to/users-app /opt/lampp/htdocs/
+
+3) Criar .htaccess com o conteúdo:
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
