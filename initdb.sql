@@ -1,5 +1,3 @@
-/* falta criar a database... tenho no meu notebook mas só posso acessar a tarde rs. mas é só criar ela aqui (chamei de usersdb)
-e fazer "use usersdb" antes de começar a criar as tables */
 --DROP DATABASE IF EXISTS `piquepei`;
 CREATE DATABASE IF NOT EXISTS `piquepei`
 DEFAULT CHARACTER SET = latin1;
