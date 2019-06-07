@@ -1,3 +1,18 @@
+<html>
+<body>
+
+<form action="search.php" method="post">
+Buscar: <input type="text" name="searchstr"><br>
+  <br>
+  <input type="radio" name="method" value="name"> Por nome
+  <input type="radio" name="method" value="username"> Por username<br>
+  <br>
+<input type="submit" value="Busca">
+</form>
+
+</body>
+</html>
+
 <?php
 
 # === constants

@@ -3,17 +3,32 @@
 # === api
 # ==================================================
 
-$app->get('/api/users', function() use ($app) {
+$app->get('/users/name', function() use ($app) {
 
-  $results = [];
-  $name = $app->request->get('name');
+  $name = $app->request->get('n');
   if ( $name ) {
-    $results = Users::where('name','LIKE',"%{$name}%")
+    $results = [];
+    $nameres = Users::where('name','LIKE',"%{$name}%")
                       ->get();
-  } else {
-    $results = Users::all();
+    $message = $nameres->count() . ' results';
+    return helpers::jsonResponse(false, $message, $results );
   }
-  $message = $results->count() . ' results';
-  return helpers::jsonResponse(false, $message, $results );
 
 });
+
+$app->get('/users/username', function() use ($app) {
+
+  $username = $app->request->get('u');
+  if ( $username ) {
+    $results = [];
+    $results = Users::where('username','LIKE',"%{$username}%")
+                      ->get();
+    $message = $results->count() . ' results';
+    return helpers::jsonResponse(false, $message, $results );
+  }
+
+});
+
+$app->get('/', function() use ($app) {});
+
+
