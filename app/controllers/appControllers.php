@@ -8,9 +8,9 @@ $app->get('/users/name', function() use ($app) {
   $name = $app->request->get('n');
   if ( $name ) {
     $results = [];
-    $nameres = Users::where('name','LIKE',"%{$name}%")
+    $results = Users::where('name','LIKE',"%{$name}%")
                       ->get();
-    $message = $nameres->count() . ' results';
+    $message = $results->count() . ' results';
     return helpers::jsonResponse(false, $message, $results );
   }
 
