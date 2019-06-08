@@ -2,6 +2,9 @@
 
 # === api
 # ==================================================
+use Illuminate\Support\Facades\DB;
+
+
 
 $app->get('/users/name', function() use ($app) {
 
@@ -9,7 +12,12 @@ $app->get('/users/name', function() use ($app) {
   if ( $name ) {
     $results = [];
     $results = Users::where('name','LIKE',"%{$name}%")
-                      ->get();
+    ->orderByRaw("FIELD(id, (SELECT id FROM relevancia1 WHERE id = users.id))")
+    ->orderByRaw("FIELD(id, (SELECT id FROM relevancia2 WHERE id = users.id))")
+    ->orderBy('name')
+    ->get();
+    #->paginate(15);
+    
     $message = $results->count() . ' results';
     return helpers::jsonResponse(false, $message, $results );
   }
@@ -22,7 +30,12 @@ $app->get('/users/username', function() use ($app) {
   if ( $username ) {
     $results = [];
     $results = Users::where('username','LIKE',"%{$username}%")
-                      ->get();
+    ->orderByRaw("FIELD(id, (SELECT id FROM relevancia1 WHERE id = users.id))")
+    ->orderByRaw("FIELD(id, (SELECT id FROM relevancia2 WHERE id = users.id))")
+    ->orderBy('name')
+    ->get();
+    #->paginate(15);
+
     $message = $results->count() . ' results';
     return helpers::jsonResponse(false, $message, $results );
   }
